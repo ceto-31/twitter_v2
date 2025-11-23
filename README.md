@@ -98,3 +98,12 @@ This project is a functional social media application built with **Laravel** and
 * 3. User Profile
     ![Profile Screenshot](public/screenshots/profile.png)
     ![Profile Screenshot](public/screenshots/profile2.png)
+
+## App Deployment ##
+* **Live URL: []**
+
+* **Hosting Platform: Laravel Cloud**
+
+## Credits
+This project was developed with the assistance of **Google Gemini**.
+* Google Gemini provided step-by-step guidance for project setup, generated code for core features (Tweets, Likes via Alpine.js, User Profiles), debugged database and routing errors, and assisted with documentation.
