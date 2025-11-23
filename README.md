@@ -1,59 +1,100 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Twitter-Like Social Media Application
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Project Description and Purpose
+This project is a functional social media application built with **Laravel** and **MySQL**. It was developed as a requirement for the Laboratory Midterm Exam. The purpose of the application is to replicate core Twitter functionalities, allowing users to register, post short updates (tweets), interact via likes, and view user profiles. The application focuses on clean architecture, secure authentication, and a responsive user interface using **Tailwind CSS**.
 
-## About Laravel
+## Features Implemented
+### 1. User Authentication
+* Secure registration, login, and logout using **Laravel Breeze**.
+* Password hashing and protected routes (middleware).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 2. Tweet Management
+* **Create:** Users can post tweets with a strict 280-character limit (enforced via backend validation and frontend live counter).
+* **Read:** Global timeline displays tweets from all users, ordered by newest first.
+* **Update:** Users can edit their own tweets (shows an "edited" status).
+* **Delete:** Users can delete their own tweets with a confirmation prompt.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 3. Like System
+* Users can like and unlike tweets.
+* **AJAX/Alpine.js Integration:** Likes update instantly without a full page refresh.
+* Visual indicators (heart turns red) and dynamic count display.
+* Database constraints ensure a user can only like a tweet once.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 4. User Profile
+* Dedicated profile page for every user.
+* Displays user stats: **Join Date**, **Total Tweets**, and **Total Likes Received**.
+* Lists all tweets created by that specific user.
 
-## Learning Laravel
+## Technical Stack
+* **Framework:** Laravel (PHP)
+* **Database:** MySQL
+* **Frontend:** Blade Templates, Tailwind CSS, Alpine.js
+* **Authentication:** Laravel Breeze
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Installation Instructions
 
-## Laravel Sponsors
+## Follow these steps to set up the project locally:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 1. Clone the Repository
+* ```bash
+* git clone <https://github.com/ceto-31/twitter_v2.git>
+* cd twitter-clone
 
-### Premium Partners
+## 2. Install Dependencies
+* Install PHP and JavaScript dependencies:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+* Bash
+*    composer install
+*    npm install
 
-## Contributing
+## 3. Environment Setup
+* Copy the example environment file and generate the application key:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+* Bash
+*    cp .env.example .env
+*    php artisan key:generate
 
-## Code of Conduct
+## 4. Database Setup Steps
+*    a. Create a MySQL database named twitter_clone using MySql
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+*    b. Open the .env file in the project root and update your database credentials:
 
-## Security Vulnerabilities
+*    Code snippet
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+*   **DB_CONNECTION=mysql**
+*   **DB_HOST=127.0.0.1**
+*   **DB_PORT=3306**
+*   **DB_DATABASE=twitter_clone**
+*   **DB_USERNAME=root**
+*   **DB_PASSWORD=**
 
-## License
+*    c.Run the database migrations to create the tables:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+*    Bash
+*        php artisan migrate
+
+## 5. Build Frontend Assets
+* Compile the Tailwind CSS and JavaScript assets:
+
+*    Bash
+*    npm run build
+
+## 6. Run the Application
+* Start the local development server:
+
+ *   Bash
+ *   php artisan serve
+
+*    Access the app at: http://127.0.0.1:8000
+
+## Screenshots of the Application
+* 1. Global Timeline (Dashboard)
+    ![Timeline Screenshot](public/screenshots/tweet.png)
+    ![Timeline Screenshot](public/screenshots/tweet2.png)
+* 2. Display User Stats
+    ![User Stats](public/screenshots/stats.png)
+* 3. User Profile
+    ![Profile Screenshot](public/screenshots/profile.png)
+    ![Profile Screenshot](public/screenshots/profile2.png)
