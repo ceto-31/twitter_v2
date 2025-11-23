@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TweetController;
 use App\Http\Controllers\TweetLikeController;
+use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,6 +23,9 @@ Route::middleware('auth')->group(function () {
 
     // Tweet Routes
     Route::resource('tweets', TweetController::class);
+
+    // User Profile Route
+    Route::get('/users/{user}', [UserProfileController::class, 'show'])->name('users.show');
     
     // Like Route (NEW)
     Route::post('/tweets/{tweet}/like', TweetLikeController::class)->name('tweets.like');
